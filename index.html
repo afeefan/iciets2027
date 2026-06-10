@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICIETS 2027 — International Conference on Innovative and Emerging Technologies for Sustainability</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B40;
+    --gold: #C9973A;
+    --cream: #F8F5EF;
+    --slate: #4A5568;
+    --light: #EEF2F7;
+    --white: #FFFFFF;
+    --accent: #1A3A6B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13, 27, 64, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-brand span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0D1B40 0%, #1A3A6B 60%, #0D1B40 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(201,151,58,0.12) 0%, transparent 60%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 860px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero-acronym {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(201,151,58,0.4);
+    letter-spacing: 0.12em;
+    line-height: 1;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .hero-meta {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .hero-meta strong { color: var(--gold); font-weight: 600; }
+
+  .hero-stats {
+    display: flex; gap: 48px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid rgba(201,151,58,0.3);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 40px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .btn-primary:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.4);
+    color: var(--white);
+    padding: 14px 40px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    margin-left: 16px;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .scroll-hint {
+    position: absolute; bottom: 32px;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* SECTIONS */
+  section { padding: 96px 40px; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-sub {
+    color: var(--slate);
+    font-size: 1rem;
+    max-width: 600px;
+    margin-bottom: 56px;
+  }
+
+  .container { max-width: 1160px; margin: 0 auto; }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--slate);
+    margin-bottom: 20px;
+    font-size: 0.97rem;
+  }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .highlight-card {
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .highlight-card h4 {
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+  }
+
+  .highlight-card p {
+    color: var(--slate);
+    font-size: 0.85rem;
+  }
+
+  /* TRACKS */
+  .tracks { background: var(--white); }
+
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .track-card {
+    border: 1px solid #E2E8F0;
+    border-radius: 4px;
+    padding: 32px;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .track-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .track-card:hover::before { transform: scaleX(1); }
+
+  .track-card:hover {
+    box-shadow: 0 8px 32px rgba(13,27,64,0.08);
+    transform: translateY(-3px);
+  }
+
+  .track-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(13,27,64,0.06);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .track-card h3 {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1rem;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .track-topics {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .track-topics li {
+    font-size: 0.83rem;
+    color: var(--slate);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .track-topics li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  /* DATES */
+  .dates { background: var(--navy); }
+
+  .dates .section-title { color: var(--white); }
+  .dates .section-label { color: var(--gold); }
+  .dates .section-sub { color: rgba(255,255,255,0.6); }
+
+  .dates-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .date-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,151,58,0.2);
+    border-radius: 4px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.25s;
+  }
+
+  .date-card:hover {
+    background: rgba(201,151,58,0.08);
+    border-color: var(--gold);
+  }
+
+  .date-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .date-card h4 {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .date-card .date-val {
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .date-card p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    margin-top: 6px;
+  }
+
+  /* COMMITTEE */
+  .committee { background: var(--light); }
+
+  .committee-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .member-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 28px;
+    border-top: 3px solid transparent;
+    transition: all 0.25s;
+  }
+
+  .member-card:hover {
+    border-top-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(13,27,64,0.08);
+  }
+
+  .member-role {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .member-card h3 {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .member-card p {
+    color: var(--slate);
+    font-size: 0.83rem;
+    line-height: 1.5;
+  }
+
+  /* SUBMISSION */
+  .submission { background: var(--white); }
+
+  .submission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .submission-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 32px;
+    position: relative;
+  }
+
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    bottom: 0;
+    width: 1px;
+    background: #E2E8F0;
+  }
+
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    padding-top: 8px;
+  }
+
+  .step-content p {
+    color: var(--slate);
+    font-size: 0.85rem;
+  }
+
+  .guidelines-box {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 32px;
+  }
+
+  .guidelines-box h3 {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+
+  .guideline-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+
+  .g-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .guideline-item p {
+    color: var(--slate);
+    font-size: 0.85rem;
+  }
+
+  /* VENUE */
+  .venue { background: var(--cream); }
+
+  .venue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .venue-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .venue-info .venue-sub {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .venue-info p {
+    color: var(--slate);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .venue-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .tag {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 4px 14px;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+  }
+
+  .venue-map {
+    background: var(--navy);
+    border-radius: 4px;
+    overflow: hidden;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+  }
+
+  .venue-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(20%);
+  }
+
+  /* CONTACT */
+  .contact { background: var(--navy); }
+  .contact .section-title { color: var(--white); }
+  .contact .section-label { color: var(--gold); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+
+  .contact-info p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+    font-size: 0.97rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 40px; height: 40px;
+    background: rgba(201,151,58,0.15);
+    border: 1px solid rgba(201,151,58,0.3);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-detail h4 {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .contact-detail p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,151,58,0.2);
+    border-radius: 4px;
+    padding: 32px;
+  }
+
+  .contact-card h3 {
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+
+  .contact-card p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .cfp-badge {
+    background: rgba(201,151,58,0.15);
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .cfp-badge p {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* PUBLISHER BADGE */
+  .publisher {
+    background: var(--cream);
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #E2E8F0;
+  }
+
+  .publisher p {
+    color: var(--slate);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .publisher-badges {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .pub-badge {
+    background: var(--white);
+    border: 1px solid #E2E8F0;
+    border-radius: 4px;
+    padding: 10px 24px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.06em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080F24;
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+  }
+
+  footer .footer-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 64px 20px; }
+    .about-grid, .tracks-grid, .dates-grid,
+    .committee-grid, .submission-grid,
+    .venue-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 24px; }
+    .stat { border-right: none; border-bottom: 1px solid rgba(201,151,58,0.3); padding-bottom: 16px; }
+    .stat:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand" style="display:flex; align-items:center; gap:12px;">
+  <img src="dept logo.png" style="height:40px; width:auto;" alt="St. Francis College">
+  <span style="color:#C9973A;">ICIETS</span> 2027
+</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#dates">Dates</a></li>
+    <li><a href="#committee">Committee</a></li>
+    <li><a href="#submission">Submit</a></li>
+    <li><a href="#venue">Venue</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">2nd International Conference · January 2027</div>
+  <div class="hero-acronym">ICIETS</div>
+  <h1>Innovative and Emerging Technologies<br>for <span>Sustainability</span></h1>
+  <p class="hero-meta">
+    <strong>St. Francis College for Women</strong>, Begumpet, Hyderabad, India &nbsp;·&nbsp;
+    Hybrid (In-person + Online) &nbsp;·&nbsp; 
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Technical Tracks</span>
+    </div>
+   
+    <div class="stat">
+      <span class="stat-num">2nd</span>
+      <span class="stat-label">Edition</span>
+    </div>
+  </div>
+  <div>
+    <a href="#submission" class="btn-primary">Submit Your Paper</a>
+    <a href="#tracks" class="btn-outline">View Tracks</a>
+  </div>
+  <div class="scroll-hint">↓ scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-label">About the Conference</div>
+    <h2 class="section-title">Where Technology Meets Sustainability</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>ICIETS 2027 is the second edition of the International Conference on Innovative and Emerging Technologies for Sustainability, organized by the Department of Computer Science, St. Francis College for Women, Hyderabad, India.</p>
+        <p>The conference brings together researchers, academicians, industry professionals, and scholars from across the globe to present and discuss cutting-edge research in technologies that drive sustainability, intelligent systems, and next-generation networks.</p>
+        <p>The inaugural edition, ICIETS 2025, was successfully held in February 2025, with proceedings published in a UGC CARE-listed journal — establishing a strong foundation for this second, more ambitious edition.</p>
+        <p>ICIETS 2027 will be a <strong>hybrid conference</strong>, welcoming both in-person attendees in Hyderabad and online participants from around the world. Accepted and presented papers will be published. <strong>(Subject to Approval)</strong></p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <h4>🏛️ Organizing Institution</h4>
+          <p>St. Francis College for Women, Begumpet, Hyderabad — Autonomous, affiliated to Osmania University, established 1959.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>📚 Publication</h4>
+          <p>Proceedings to be published.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>🌐 Hybrid Format</h4>
+          <p>Attend in-person in Hyderabad or present your paper online from anywhere in the world.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>🔍 Peer Review</h4>
+          <p>All submissions undergo rigorous double-blind peer review by an International Program Committee.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section class="tracks" id="tracks">
+  <div class="container">
+    <div class="section-label">Call for Papers</div>
+    <h2 class="section-title">Four Technical Tracks</h2>
+    <p class="section-sub">Submit original, unpublished research across any of the following thematic areas.</p>
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-num">01</div>
+        <h3>The Future of Robotics — Innovation, Challenges & Social Impact</h3>
+        <ul class="track-topics">
+          <li>Agriculture Drones and precision farming</li>
+          <li>Medical Robotics and AI-assisted surgery</li>
+          <li>Soft Robotics: materials, design, applications</li>
+          <li>Collaborative Robots (Cobots) in industry</li>
+          <li>Ethical and social implications of robotics</li>
+        </ul>
+      </div>
+      <div class="track-card">
+        <div class="track-num">02</div>
+        <h3>Machine Learning and Applications of AI</h3>
+        <ul class="track-topics">
+          <li>Healthcare — AI transforming patient care</li>
+          <li>Finance — Intelligent financial ecosystems</li>
+          <li>Autonomous Systems and decision-making</li>
+          <li>Education — Adaptive AI and immersive tech</li>
+          <li>Ethical and responsible AI development</li>
+        </ul>
+      </div>
+      <div class="track-card">
+        <div class="track-num">03</div>
+        <h3>The Evolving Landscape of Computing and Networks</h3>
+        <ul class="track-topics">
+          <li>Cybersecurity frameworks and threat mitigation</li>
+          <li>Internet of Things (IoT) architectures</li>
+          <li>Wireless and next-generation mobile networks</li>
+          <li>Network Security and intrusion detection</li>
+          <li>Mobile Networking and edge computing</li>
+        </ul>
+      </div>
+      <div class="track-card">
+        <div class="track-num">04</div>
+        <h3>Information Security — Protecting Data in the Digital Age</h3>
+        <ul class="track-topics">
+          <li>Cloud Security and secure cloud architectures</li>
+          <li>Mobile Security and application protection</li>
+          <li>IT Security governance and compliance</li>
+          <li>Cyber Threats — detection and prevention</li>
+          <li>Biometrics and identity management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATES -->
+<section class="dates" id="dates">
+  <div class="container">
+    <div class="section-label">Important Dates</div>
+    <h2 class="section-title">Key Deadlines</h2>
+    <p class="section-sub">All deadlines are at 11:59 PM IST (Indian Standard Time).</p>
+    <div class="dates-grid">
+      <div class="date-card">
+        <div class="date-icon">📢</div>
+        <h4>Call for Papers</h4>
+        <div class="date-val">TBA</div>
+        <p>Conference website live</p>
+      </div>
+      <div class="date-card">
+        <div class="date-icon">📝</div>
+        <h4>Paper Submission</h4>
+        <div class="date-val">TBA</div>
+        <p>Full paper deadline</p>
+      </div>
+      <div class="date-card">
+        <div class="date-icon">✉️</div>
+        <h4>Notification</h4>
+        <div class="date-val">TBA</div>
+        <p>Accept / Reject decision</p>
+      </div>
+      <div class="date-card">
+        <div class="date-icon">📄</div>
+        <h4>Camera Ready</h4>
+        <div class="date-val">TBA</div>
+        <p>Final paper submission</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITTEE -->
+<section class="committee" id="committee">
+  <div class="container">
+    <div class="section-label">Organizing Committee</div>
+    <h2 class="section-title">The Team Behind ICIETS 2027</h2>
+    <p class="section-sub">Led by experienced academics with a commitment to research quality and global collaboration.</p>
+    <div class="committee-grid">
+      <div class="member-card">
+        <div class="member-role">Conference Chair</div>
+        <h3>Dr. Sr. Sujatha Yeruva</h3>
+        <p>Associate Professor<br>St. Francis College for Women<br>Hyderabad, India</p>
+      </div>
+      <div class="member-card">
+        <div class="member-role">Conference Convener</div>
+        <h3>Ms. Afeefa Noorain</h3>
+        <p>Assistant Professor, Dept. of Computer Science<br>St. Francis College for Women<br>Hyderabad, India</p>
+      </div>
+      <div class="member-card">
+        <div class="member-role"></div>
+        <h3></h3>
+        <p><br></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMISSION -->
+<section class="submission" id="submission">
+  <div class="container">
+    <div class="section-label">Paper Submission</div>
+    <h2 class="section-title">How to Submit</h2>
+    <p class="section-sub">Submissions open soon. Papers must be original and not published elsewhere.</p>
+    <div class="submission-grid">
+      <div class="submission-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Prepare Your Manuscript</h4>
+            <p>Use the official MS Word template. Papers should be 10–15 pages including references.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Check Plagiarism</h4>
+            <p>Ensure originality. All submissions are screened using iThenticate before review.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Submit via EquinOCS</h4>
+            <p>Submit your paper through online submission system. Link will be provided when submissions open.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Double-Blind Review</h4>
+            <p>Each paper is reviewed by at least two independent experts. Remove all author information before submission.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>Present & Publish</h4>
+            <p>Accepted papers must be presented at the conference to be considered for publication.</p>
+          </div>
+        </div>
+      </div>
+      <div class="guidelines-box">
+        <h3>Submission Guidelines</h3>
+        <div class="guideline-item">
+          <div class="g-dot"></div>
+          <p>Papers must be written in English and follow formatting guidelines</p>
+        </div>
+        <div class="guideline-item">
+          <div class="g-dot"></div>
+          <p>Recommended length: 10–15 pages including figures, tables, and references</p>
+        </div>
+        <div class="guideline-item">
+          <div class="g-dot"></div>
+          <p>Double-blind review — remove all author names and affiliations from the submitted PDF</p>
+        </div>
+        <div class="guideline-item">
+          <div class="g-dot"></div>
+          <p>Simultaneous submission to other venues is not permitted</p>
+        </div>
+        <div class="guideline-item">
+          <div class="g-dot"></div>
+          <p>At least one author of each accepted paper must register and present at the conference</p>
+        </div>
+        <div class="guideline-item">
+          <div class="g-dot"></div>
+          <p>Online presentation is available for international authors</p>
+        </div>
+        <div class="guideline-item">
+          <div class="g-dot"></div>
+          <p>Authors of accepted papers must sign License to Publish agreement</p>
+        </div>
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #E2E8F0;">
+          <p style="font-size: 0.8rem; color: #718096;">📥 Template: <a href="" style="color: #C9973A;">Download here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="venue" id="venue">
+  <div class="container">
+    <div class="section-label">Venue</div>
+    <h2 class="section-title">Hyderabad, India</h2>
+    <div class="venue-grid">
+      <div class="venue-info">
+        <h3>St. Francis College for Women</h3>
+        <div class="venue-sub">Begumpet, Hyderabad — 500016, Telangana, India</div>
+        <p>An autonomous women's institution affiliated to Osmania University, established in 1959. Located in the heart of Hyderabad, the college is well connected by road and is approximately 1 hour away from Rajiv Gandhi International Airport.</p>
+        <p>The campus is equipped with state-of-the-art seminar halls, computing infrastructure, and facilities suitable for an international hybrid conference.</p>
+        <div class="venue-tags">
+          <span class="tag">Hyderabad</span>
+          <span class="tag">Hybrid Format</span>
+          <span class="tag">In-person + Online</span>
+          <span class="tag">January 2027</span>
+        </div>
+      </div>
+      <div class="venue-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.7!2d78.4700!3d17.4400!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c3a3a3a3a3%3A0x3a3a3a3a3a3a3a3a!2sSt.%20Francis%20College%20for%20Women%2C%20Begumpet%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1"
+          allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>For queries regarding paper submission, registration, or any other conference-related matter, please reach out to the Conference Convener.</p>
+        <div class="contact-detail">
+          <div class="contact-icon">👤</div>
+          <div>
+            <h4>Conference Convener</h4>
+            <p>Ms. Afeefa Noorain</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">🏛️</div>
+          <div>
+            <h4>Institution</h4>
+            <p>Dept. of Computer Science<br>St. Francis College for Women, Hyderabad</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:afeefa@sfc.ac.in" style="color: var(--gold);">afeefa@sfc.ac.in</a></p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p>+91-9985257906</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Call for Papers — Coming Soon</h3>
+        <div class="cfp-badge">
+          <p>📢 Submissions open soon — check back for updates</p>
+        </div>
+        <p>ICIETS 2027 is currently in the planning phase. The official Call for Papers will be announced shortly. Important dates and submission portal will be made available on this page.</p>
+        <p>In the meantime, feel free to reach out with any questions or to express your interest in submitting or reviewing papers.</p>
+        <a href="mailto:afeefa@sfc.ac.in" class="btn-primary" style="display: inline-block; margin-top: 8px;">Email Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLISHER -->
+<div class="publisher">
+  <p>Proceedings to be published in</p>
+  <div class="publisher-badges">
+    <div class="pub-badge">TBA</div>
+    <div class="pub-badge">TBA</div>
+    <div class="pub-badge">TBA</div>
+    <div class="pub-badge">Double-Blind Review</div>
+    
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">ICIETS 2027</div>
+  <p>© 2027 Dept. of Computer Science, St. Francis College for Women, Hyderabad, India</p>
+  <p><a href="mailto:afeefa@sfc.ac.in" style="color: rgba(255,255,255,0.4);">afeefa@sfc.ac.in</a></p>
+</footer>
+
+</body>
+</html>
